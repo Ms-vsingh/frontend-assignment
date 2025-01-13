@@ -61,8 +61,14 @@ const Table = () => {
               {currentData.map((user) => (
                 <tr key={user["s.no"]}>
                   <td>{user["s.no"]}</td>
-                  <td>{user["percentage.funded"]}</td>
-                  <td>{"$" + user["amt.pledged"]}</td>
+                  <td>
+                    {user["percentage.funded"]
+                      ? user["percentage.funded"]
+                      : "-"}
+                  </td>
+                  <td>
+                    {user["amt.pledged"] ? "$" + user["amt.pledged"] : "-"}
+                  </td>
                 </tr>
               ))}
             </tbody>
